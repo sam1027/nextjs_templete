@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Medic {
+  itemSeq              Int     @id @unique(map: "tb_medic_UN") @map("item_seq")
+  itemName             String  @db.VarChar(400) @map("item_name")
+  entpName             String  @db.VarChar(100) @map("entp_name")
+  efcyQesitm           String? @db.VarChar(500) @map("efcy_qesitm")
+  useMethodQesitm     String? @db.Text @map("use_method_qesitm")
+  atpnWarnQesitm      String? @db.VarChar(3000) @map("atpn_warn_qesitm")
+  atpnQesitm           String? @db.VarChar(3000) @map("atpn_qesitm")
+  intrcQesitm          String? @db.VarChar(1000) @map("intrc_qesitm")
+  seQesitm             String? @db.VarChar(1000) @map("se_qesitm")
+  depositMethodQesitm String? @db.VarChar(1000) @map("deposit_method_qesitm")
+  openDe               String? @db.VarChar(20) @map("open_de")
+  updateDe             String? @db.VarChar(20) @map("update_de")
+  itemImage            String? @db.VarChar(300) @map("item_image")
+  deleted             Boolean @default(false)
+
+  @@index([efcyQesitm], map: "tb_medic_efcy_qesitm_IDX")
+  @@index([entpName], map: "tb_medic_entp_name_IDX")
+  @@index([entpName, efcyQesitm], map: "tb_medic_entp_name_IDX4")
+  @@index([itemName], map: "tb_medic_item_name_IDX")
+  @@index([itemName, entpName], map: "tb_medic_item_name_IDX2")
+
+  @@map("tb_medic")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model test {
+  tescol String? @db.VarChar(100)
+
+  @@ignore
+}

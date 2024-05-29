@@ -1,0 +1,33 @@
+export interface IMedicine {
+    itemSeq: number,
+    itemName: string,
+    entpName: string,
+    efcyQesitm?: string | null,
+    useMethodQesitm?: string | null,
+    atpnWarnQesitm?: string | null,
+    atpnQesitm?: string | null,
+    intrcQesitm?: string | null,
+    seQesitm?: string | null,
+    depositMethodQesitm?: string | null,
+    openDe?: string | null,
+    updateDe?: string | null,
+    itemImage?: string | null,
+    deleted: boolean,
+}
+
+export const medicineInputObj:IMedicine = {
+    itemSeq: 0,
+    itemName: "",
+    entpName: "",
+    efcyQesitm: "",
+    useMethodQesitm: "",
+    atpnWarnQesitm: "",
+    atpnQesitm: "",
+    intrcQesitm: "",
+    seQesitm: "",
+    depositMethodQesitm: "",
+    openDe: "",
+    updateDe: "",
+    itemImage: "",
+    deleted: false,
+}
